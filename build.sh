@@ -46,9 +46,11 @@ echo "Retrieving Dynatrace Environment details"
 
 DT_TENANT=$DYNATRACE_ENVIRONMENT_ID
 
-VM_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+#VM_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+VM_IP=$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)
+HOSTNAME=$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/hostname)
 echo "Virtual machine IP: $VM_IP"
-
+echo "Virtual machine Hostname: $HOSTNAME"
 ingress_domain="$VM_IP.$domain"
 echo "Ingress domain: $ingress_domain"
 
