@@ -203,6 +203,15 @@ cp -r $home_folder/$clone_folder/box/$releaseBranchPipeline/. $home_folder/$rele
 cd $home_folder/$releaseBranchPipeline && git add . && git commit -m "Initial commit, enjoy"
 cd $home_folder/$releaseBranchPipeline && git push http://$git_user:$gitea_pat@gitea.$ingress_domain/$git_org/$releaseBranchPipeline
 
+docs_repo="lab-guides"
+echo "Gitea - Create repo $docs_repo..."
+curl -k -d '{"name":"'$docs_repo'", "private":false, "auto-init":true}' -H "Content-Type: application/json" -X POST "http://gitea.$ingress_domain/api/v1/org/$git_org/repos?access_token=$gitea_pat"
+cd $home_folder
+git clone http://$git_user:$gitea_pat@gitea.$ingress_domain/$git_org/$docs_repo
+cp -r $home_folder/$clone_folder/box/$docs_repo/. $home_folder/$docs_repo
+cd $home_folder/$releaseBranchPdocs_repoipeline && git add . && git commit -m "Initial commit, enjoy"
+cd $home_folder/$docs_repo && git push http://$git_user:$gitea_pat@gitea.$ingress_domain/$git_org/$docs_repo
+
 ##############################
 # Create app and base settings   #
 ##############################
