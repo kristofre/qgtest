@@ -44,7 +44,7 @@ echo "Retrieving Dynatrace Environment details"
 # export DYNATRACE_TOKEN="tokenid"
 # export DYNATRACE_PAAS_TOKEN="paas token"
 
-DT_TENANT=$DYNATRACE_ENVIRONMENT_ID
+DT_TENANT=$DYNATRACE_ENVIRONMENT_URL
 
 #VM_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
 VM_IP=$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)
