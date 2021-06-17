@@ -54,6 +54,11 @@ echo "Virtual machine Hostname: $HOSTNAME"
 ingress_domain="$VM_IP.$domain"
 echo "Ingress domain: $ingress_domain"
 
+
+echo "Dynatrace Envirionment: $DYNATRACE_ENVIRONMENT_URL"
+echo "Dynatrace API Token: $DYNATRACE_TOKEN"
+echo "Dynatrace PaaS Token: $DYNATRACE_PAAS_TOKEN"
+
 cd 
 #chown -R dtu_training:dtu_training /home/dtu_training/
 ##############################

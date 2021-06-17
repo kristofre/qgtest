@@ -22,5 +22,9 @@ chown -R $shell_user $home_folder/$clone_folder
 cd "$home_folder/$clone_folder/"
 chmod u+x ./build.sh  
 
+echo "Dynatrace Envirionment: $DYNATRACE_ENVIRONMENT_URL"
+echo "Dynatrace API Token: $DYNATRACE_TOKEN"
+echo "Dynatrace PaaS Token: $DYNATRACE_PAAS_TOKEN"
+
 ./build.sh "$home_folder" "$clone_folder" "$source_repo"
 
