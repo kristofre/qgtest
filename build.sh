@@ -55,7 +55,7 @@ ingress_domain="$VM_IP.$domain"
 echo "Ingress domain: $ingress_domain"
 
 
-echo "Dynatrace Envirionment: $DYNATRACE_ENVIRONMENT_URL"
+echo "Dynatrace Envirionment: $DT_TENANT"
 echo "Dynatrace API Token: $DYNATRACE_TOKEN"
 echo "Dynatrace PaaS Token: $DYNATRACE_PAAS_TOKEN"
 
